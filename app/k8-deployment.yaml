@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: garrett-interview
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: api
+      service: garrett-api
+  minReadySeconds: 1
+  progressDeadlineSeconds: 60
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        type: api
+        service: garrett-api
+        language: python3.9
+    spec:
+      containers:
+      - name: api
+        image: garrett-interview:latest
+        ports:
+        - containerPort: 5000
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: 5000
+          periodSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: 5000
