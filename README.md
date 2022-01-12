@@ -29,24 +29,24 @@ Key Concepts:
 
 ## Installation / destruction
 1. Install Terraform - https://www.terraform.io/downloads
-1. Configure AWS in `~/.aws/config` and `~/.aws/credentials` - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
-1. Configure parameters in `vars.tf`.
-1. Initialize Terraform:
-```bash
-terraform init
-```
-1. Generate Terraform Plan:
-```bash
-terraform plan
-```
-1. Apply terraform:
-```bash
-terraform apply
-```
-1. To destroy:
-```bash
-terraform destroy
-```
+2. Configure AWS in `~/.aws/config` and `~/.aws/credentials` - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
+3. Configure parameters in `vars.tf`.
+4. Initialize Terraform:
+  ```bash
+  terraform init
+  ```
+5. Generate Terraform Plan:
+  ```bash
+  terraform plan
+  ```
+6. Apply terraform:
+  ```bash
+  terraform apply
+  ```
+7. To destroy:
+  ```bash
+  terraform destroy
+  ```
 
 ## General overview of resources
 1. Creates a VPC with a public subnet in a single Availability zone, and 1 private subnet in a zone. The module used is located in the `modules` folder.  Because this creates only 1 instance of the UI, API, and RDS instances, I didn't need the other availability zones. More can be added by appending the appropriate hash maps in the variables. 
