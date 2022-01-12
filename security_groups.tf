@@ -4,7 +4,7 @@ resource "aws_security_group" "ui" {
   vpc_id      = module.vpc_networking.vpc_id
 
   ingress {
-    description      = "TLS from VPC"
+    description      = "TLS"
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
@@ -12,7 +12,7 @@ resource "aws_security_group" "ui" {
   }
 
   ingress {
-    description      = "HTTP from VPC"
+    description      = "HTTP"
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
@@ -37,7 +37,7 @@ resource "aws_security_group" "api" {
   vpc_id      = module.vpc_networking.vpc_id
 
   ingress {
-    description      = "HTTP from VPC"
+    description      = "TLS from UI"
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
