@@ -61,7 +61,7 @@ Configure the resources by modifying the variables in `vars.tf`.  Normally I wou
 ## Concessions
 I am way over time due to switching challenges, so I had remove some features I normally would use.
 
-- Normally I would set up a remote state backend in S3 with DynamoDB state locking to prevent corruption by multiple users. This creates a single source of truth safely stored on AWS, and allows for multiple users to collaborate.
+- Normally I would set up a remote state backend in S3 with DynamoDB state locking in a separate directory to prevent corruption by multiple users. This creates a single source of truth safely stored on AWS, and allows for multiple users to collaborate.
 
 An interesting solution to the chicken-and-egg problem of
 setting up state backends in Terraform can be seen at
